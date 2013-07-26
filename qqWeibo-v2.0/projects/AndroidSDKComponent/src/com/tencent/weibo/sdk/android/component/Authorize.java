@@ -71,8 +71,10 @@ public class Authorize extends Activity {
 
 			try {
 				// Bundle bundle = getIntent().getExtras();
-				clientId = Util.getConfig().getProperty("APP_KEY");// bundle.getString("APP_KEY");
-				redirectUri = Util.getConfig().getProperty("REDIRECT_URI");// bundle.getString("REDIRECT_URI");
+                clientId = getIntent().getStringExtra("APP_KEY");
+                redirectUri = getIntent().getStringExtra("REDIRECT_URI");
+                //clientId = Util.getConfig().getProperty("APP_KEY");// bundle.getString("APP_KEY");
+                //redirectUri = Util.getConfig().getProperty("REDIRECT_URI");// bundle.getString("REDIRECT_URI");
 				if (clientId == null || "".equals(clientId)
 						|| redirectUri == null || "".equals(redirectUri)) {
 					Toast.makeText(Authorize.this, "请在配置文件中填写相应的信息",
